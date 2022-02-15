@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { api } from "../services/api";
 import { MovieCard } from "./MovieCard";
 
@@ -26,7 +26,7 @@ interface ContentProps {
   movies: MovieProps[];
 }
 
-export function Content(props: ContentProps) {
+function ContentComponent(props: ContentProps) {
 
   return(
     <div className="container">
@@ -44,3 +44,5 @@ export function Content(props: ContentProps) {
       </div>
   )
 }
+
+export const Content = memo(ContentComponent);

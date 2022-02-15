@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { Button } from "./Button";
 
 import '../styles/sidebar.scss';
@@ -14,7 +14,7 @@ interface SidebarProps {
     handleGenre: (gender: GenreResponseProps) => void;
 }
 
-export function SideBar(props: SidebarProps) {
+function SidebarComponent(props: SidebarProps) {
     const [selectedGenreId, setSelectedGenreId] = useState(1);
 
     const handleClickButton = (genre: GenreResponseProps) => {
@@ -41,3 +41,5 @@ export function SideBar(props: SidebarProps) {
         </nav>
     );
 }
+
+export const SideBar = memo(SidebarComponent);
